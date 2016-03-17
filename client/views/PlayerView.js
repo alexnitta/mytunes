@@ -6,10 +6,12 @@ var PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
   initialize: function() {
-    this.$el.on('ended', function(data) {
-      console.log("In ended event handler, this = " + this);
-      this.model.ended();
-    }, this);
+
+    _.bindAll(this, 'ended');
+
+    this.$el.on('ended', this.ended);
+
+
   },
 
   setSong: function(song) {
@@ -19,6 +21,11 @@ var PlayerView = Backbone.View.extend({
 
   render: function() {
     return this.$el.attr('src', this.model ? this.model.get('url') : '');
+  },
+
+  ended: function(data) {
+    console.log('In ended event handler, this = ' + this);
+    this.model.ended();
   }
 
 });
