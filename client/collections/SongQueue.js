@@ -8,7 +8,9 @@ var SongQueue = Songs.extend({
   },
 
   addSong: function(song) {
-    this.push(song);
+    this.add(song);
+    this.trigger('update', this);
+    //console.log("Inside SongQueue.add for this = " + this);
   }
 
 });

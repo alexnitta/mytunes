@@ -4,6 +4,14 @@ var SongQueueView = Backbone.View.extend({
   tagName: 'table',
 
   initialize: function() {
+
+    console.dir(this);
+    
+    this.collection.on('update', function(model) {
+      console.log('appView detected the change in songQueue');
+      this.render();
+    }, this);
+
     this.render();
   },
 
