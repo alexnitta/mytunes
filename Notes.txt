@@ -26,9 +26,14 @@ LibraryView
 
 HOW PLAY WORKS
 
-AppModel takes a library as a contructor argument
+AppModel takes a library as a constructor argument
   in initialize(), it creates a 'play' event handler whose callback takes a song and sets the AppModel's current song to that song
 
 When a SongQueueEntryView is clicked, it should call its model's 'play' method - here, the model is a Song model
   inside the 'play' method, a trigger() is called which fires an event handler for anyone who is listening
 
+
+
+to enqueue
+
+  - we need to add a method to SongQueueView called addSong (or similar) to be called from AppView by a click handler
