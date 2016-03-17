@@ -21,7 +21,7 @@ var AppModel = Backbone.Model.extend({
     params.library.on('enqueue', function(song) {
       // add to the queue
       songQueue.addSong(song);
-      console.log("IM IN ENQUEUE CALLBACK");
+      console.log('IM IN ENQUEUE CALLBACK');
     });
   }
 

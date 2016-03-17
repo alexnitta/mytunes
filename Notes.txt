@@ -37,3 +37,8 @@ When a SongQueueEntryView is clicked, it should call its model's 'play' method -
 to enqueue
 
   - we need to add a method to SongQueueView called addSong (or similar) to be called from AppView by a click handler
+
+
+  end of night question:
+
+  why doesn't the AppView event handler for add:songQueue fire (line 15) ?
