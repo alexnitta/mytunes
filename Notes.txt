@@ -1,0 +1,34 @@
+Notes
+
+AppModel.js is the model class for the whole app, connects to AppView.js
+  - initializes a SongQueue collection and a currentSong Song Model
+
+In AppView:
+  this.libraryView = new LibraryView({collection: this.model.get('library')});  
+    library does not seem to be defined in AppModel.js
+      ANSWER: library is passed in on construction of AppModel in index.html
+
+
+SongsQueue.js
+  extends Songs collection, doesn't look to be working as we dont see a queue when
+    rendering index.html
+
+
+
+
+SongQueueView and SongQueueEntryView are not referenced any where outside of Spec files
+
+LibraryEntryView is what creates the rows under Library header (i.e.  (Artist) Song Name
+
+LibraryView
+  unsure why it is doing a detach on LibraryEntryView elements versus a remove
+
+
+HOW PLAY WORKS
+
+AppModel takes a library as a contructor argument
+  in initialize(), it creates a 'play' event handler whose callback takes a song and sets the AppModel's current song to that song
+
+When a SongQueueEntryView is clicked, it should call its model's 'play' method - here, the model is a Song model
+  inside the 'play' method, a trigger() is called which fires an event handler for anyone who is listening
+
