@@ -9,6 +9,10 @@ var SongModel = Backbone.Model.extend({
   enqueue: function() {
     // fill out this function to pass first spec
     this.trigger('enqueue', this);
+  },
+
+  ended: function() {
+    this.trigger('ended', this);
   }
 
 });

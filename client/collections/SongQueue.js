@@ -2,15 +2,17 @@
 var SongQueue = Songs.extend({
 
   initialize: function() {
-    // this.on('add', function() {
-    //   console.log('Change event in SongQueue colletion');
-    // });
+    
   },
 
-  addSong: function(song) {
-    this.add(song);
-    this.trigger('update', this);
-    //console.log("Inside SongQueue.add for this = " + this);
+  playFirst: function() {
+    console.log(this.at(0));
+    this.at(0).play();
+  },
+
+  nextSong: function() {
+    this.shift();
+    this.playFirst();
   }
 
 });
