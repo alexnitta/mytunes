@@ -42,3 +42,13 @@ to enqueue
   end of night question:
 
   why doesn't the AppView event handler for add:songQueue fire (line 15) ?
+
+
+
+  ***CHANGES****
+
+  1. In PlayerView, changed the event name from change to add on line 16
+  2. In AppModel, ..... seems to work
+  3. removed the trigger in SongQueue.addSong()
+
+  

@@ -17,10 +17,17 @@ var AppView = Backbone.View.extend({
     //   this.songQueueView.render();
     // });
 
-    this.model.on('update: songQueue', function() {
-      songQueueView.render();
-    });
+    // this.model.on('update: songQueue', function() {
+    //   songQueueView.render();
+    // });
 
+    this.model.get('songQueue').on('remove', function(song) {
+      this.songQueueView.dequeue(song, this.model.get('currentSong'));
+      if (this.model.get('songQueue').length === 0) {
+        this.model.set('currentSong', new SongModel());
+
+      }
+    }, this);
   },
 
   render: function() {
